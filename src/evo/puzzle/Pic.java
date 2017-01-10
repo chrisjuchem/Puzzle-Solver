@@ -9,7 +9,7 @@ public class Pic {
   public final Pattern pattern;
   public final Half half;
 
-  Pic(Pattern p, Half h) {
+  public Pic(Pattern p, Half h) {
     half = h;
     pattern = p;
   }
