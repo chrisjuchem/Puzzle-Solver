@@ -8,8 +8,8 @@ import evo.util.Rand;
 public enum Half {
   x, y;
 
-  public static Half opposite(Half half) {
-    if (half == x) {
+  public Half opposite() {
+    if (this == x) {
       return y;
     } else {
       return x;
@@ -28,6 +28,6 @@ public enum Half {
   }
 
   public static Half random() {
-    return fromOrdinal((int)(Rand.rand.nextDouble() * 2));
+    return fromOrdinal(Rand.rand.nextInt(2));
   }
 }

@@ -14,6 +14,14 @@ public class Pic {
     pattern = p;
   }
 
+  public static Pic random() {
+    return new Pic(Pattern.random(), Half.random());
+  }
+
+  public Pic opposite() {
+    return new Pic(pattern, half.opposite());
+  }
+
   @Override
   public boolean equals(Object other) {
     if (this == other) {

@@ -24,6 +24,6 @@ public enum Pattern {
   }
 
   public static Pattern random() {
-    return fromOrdinal((int)(Rand.rand.nextDouble() * 4));
+    return fromOrdinal(Rand.rand.nextInt(4));
   }
 }
