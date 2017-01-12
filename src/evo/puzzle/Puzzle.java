@@ -32,6 +32,7 @@ public class Puzzle {
       edges.add(Pic.random());
     }
 
+    pieces = new ArrayList<>();
     pieces.add(new Tile(Pic.random(), edges.get(0), edges.get(2), Pic.random()));
     pieces.add(new Tile(Pic.random(), edges.get(1), edges.get(3), edges.get(0).opposite()));
     pieces.add(new Tile(Pic.random(), Pic.random(), edges.get(4), edges.get(1).opposite()));
@@ -51,6 +52,10 @@ public class Puzzle {
         return t;
       }).collect(Collectors.toList());
     }
+  }
+
+  public Tile tileAt(int x, int y) {
+    return pieces.get(x + y * 3);
   }
 
   public static Puzzle makeNew() {

@@ -6,10 +6,10 @@ import java.util.Objects;
  * Represents a tile with a specific rotation.
  */
 public class Tile {
-  private Pic top;
-  private Pic bot;
-  private Pic left;
-  private Pic right;
+  public final Pic top;
+  public final Pic bot;
+  public final Pic left;
+  public final Pic right;
 
   public Tile(Pic top, Pic right, Pic bot, Pic left){
     this.top = top;
