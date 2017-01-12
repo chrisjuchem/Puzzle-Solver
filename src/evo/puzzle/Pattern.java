@@ -1,5 +1,7 @@
 package evo.puzzle;
 
+import java.awt.*;
+
 import evo.util.Rand;
 
 /**
@@ -20,6 +22,21 @@ public enum Pattern {
         return D;
       default:
         throw new IllegalArgumentException("Not in range [0,3]");
+    }
+  }
+
+  public Color color() {
+    switch (this) {
+      case A:
+        return Color.BLUE;
+      case B:
+        return Color.ORANGE;
+      case C:
+        return Color.RED;
+      case D:
+        return Color.GREEN;
+      default:
+        return Color.BLACK;
     }
   }
 

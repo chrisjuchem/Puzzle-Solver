@@ -6,7 +6,7 @@ import evo.util.Rand;
  * Represents the two halves of a pattern.
  */
 public enum Half {
-  x, y;
+  x, y, Half;
 
   public Half opposite() {
     if (this == x) {
