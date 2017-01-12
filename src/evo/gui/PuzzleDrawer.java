@@ -1,6 +1,7 @@
 package evo.gui;
 
 import java.awt.*;
+import java.util.Arrays;
 
 import javax.swing.*;
 
@@ -55,12 +56,12 @@ public class PuzzleDrawer extends JPanel {
     int[] ys;
     switch (p.half) {
       case x:
-        xs = /*copyof*/topXs;
-        ys = topYs;
+        xs = Arrays.copyOf(topXs, topXs.length);
+        ys = Arrays.copyOf(topYs, topYs.length);
         break;
       case y:
-        xs = botXs;
-        ys = botYs;
+        xs = Arrays.copyOf(botXs, botXs.length);
+        ys = Arrays.copyOf(botYs, botYs.length);
         break;
       default:
         xs = new int[0];
