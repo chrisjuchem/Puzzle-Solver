@@ -6,10 +6,9 @@ import javax.swing.*;
 
 import evo.puzzle.Puzzle;
 
-/**
- * Created by Chris Juchem on 1/11/2017.
- */
 public class Window extends JFrame {
+
+  PuzzleDrawer panel;
 
   public Window() {
     //this.setLayout(new BorderLayout());
@@ -19,7 +18,11 @@ public class Window extends JFrame {
 
     this.setSize(new Dimension(1200,  800));
 
-    add(new PuzzleDrawer(Puzzle.makeNew()));
+    panel = new PuzzleDrawer();
+    panel.setPuzzle(Puzzle.makeNew());
+
+    this.add(panel);
+
     this.setVisible(true);
 
   }

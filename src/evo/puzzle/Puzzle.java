@@ -12,7 +12,7 @@ import evo.util.Rand;
  */
 public class Puzzle {
   private List<Tile> pieces;
-  private static final boolean AUTO_GEN_SHUFFLE = false;
+  private static final boolean AUTO_GEN_SHUFFLE = true;
 
   public Puzzle (List<Tile> pieces) {
     this.pieces = pieces;
@@ -46,7 +46,7 @@ public class Puzzle {
     if (AUTO_GEN_SHUFFLE) {
       Collections.shuffle(pieces);
       pieces = pieces.stream().map((Tile t) -> {
-        for (int i = Rand.rand.nextInt(4); i > 0; i++) {
+        for (int i = Rand.rand.nextInt(4); i > 0; i--) {
           t = t.rotate();
         }
         return t;
@@ -55,6 +55,9 @@ public class Puzzle {
   }
 
   public Tile tileAt(int x, int y) {
+    if (x >= 3 || y >= 3) {
+      throw new IllegalArgumentException("x or y out of range [0,2]");
+    }
     return pieces.get(x + y * 3);
   }
 

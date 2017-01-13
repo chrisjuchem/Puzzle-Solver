@@ -9,16 +9,13 @@ import evo.puzzle.Pic;
 import evo.puzzle.Puzzle;
 import evo.puzzle.Tile;
 
-/**
- * Created by Chris Juchem on 1/11/2017.
- */
-public class PuzzleDrawer extends JPanel {
+class PuzzleDrawer extends JPanel {
   private Puzzle p;
   private final int OFFSET = 100;
   private final int TILE_SIZE = 150;
   private final int TRIANGLE_SCALE = 10;
 
-  PuzzleDrawer(Puzzle p) {
+   void setPuzzle(Puzzle p) {
     this.p = p;
   }
 
@@ -80,7 +77,5 @@ public class PuzzleDrawer extends JPanel {
     g.setColor(p.pattern.color());
 
     g.fillPolygon(xs, ys, Math.min(xs.length, ys.length));
-
-    System.out.println(xs.toString() + " " + ys.toString() + " "+ Math.min(xs.length, ys.length));
   }
 }
