@@ -1,5 +1,7 @@
 package evo.neuro;
 
+import evo.puzzle.Puzzle;
+
 abstract class Node {
   double value;
 
