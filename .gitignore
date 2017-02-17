@@ -1,0 +1,8 @@
+workspace.xml
+.idea
+.idea/*
+downstream
+downstream/
+out/
+out/*
+git.iml
