@@ -1,16 +1,22 @@
 package evo.neuro;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class SecondaryNode extends Node {
 
-  Map<Node, Double> inputs;
-  double selfWeight;
-  double selfVal;
+  private Map<Node, Double> inputs;
+  private double selfVal;    //constant input value to this node
+  private double selfWeight; //weighted similarly to a single other input
 
   SecondaryNode(double selfVal,double selfWeight){
+    inputs = new HashMap<>();
     this.selfVal = selfVal;
     this.selfWeight = selfWeight;
+  }
+
+  void connect(Node n, double weight) {
+    inputs.put(n, weight);
   }
 
   @Override

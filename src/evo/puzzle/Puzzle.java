@@ -12,7 +12,7 @@ import evo.util.Rand;
  */
 public class Puzzle {
   private List<Tile> pieces;
-  private static final boolean AUTO_GEN_SHUFFLE = true;
+  private static final boolean AUTO_GEN_SHUFFLE = true; //shuffle on creation?
 
   public Puzzle (List<Tile> pieces) {
     this.pieces = pieces;
