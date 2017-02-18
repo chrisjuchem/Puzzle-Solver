@@ -14,12 +14,12 @@ public class Puzzle {
   private List<Tile> pieces;
   private static final boolean AUTO_GEN_SHUFFLE = true; //shuffle on creation?
 
-  public Puzzle (List<Tile> pieces) {
+  private Puzzle (List<Tile> pieces) {
     this.pieces = pieces;
   }
 
   private Puzzle() {
-    /**  0  |  1  |  2
+    /*   0  |  1  |  2
      *      0     1
      *  -2--+--3--+--4-
      * 3    5  4  6    5
@@ -61,7 +61,23 @@ public class Puzzle {
     return pieces.get(x + y * 3);
   }
 
+  public void rotate(int tile, int rotations) {
+    Tile t = pieces.get(tile);
+    for (int i = 0; i < rotations; i++) {
+      t = t.rotate();
+    }
+    pieces.set(tile, t);
+  }
+
+  public void swap(int tile1, int tile2) {
+    pieces.set(tile1, pieces.set(tile2, pieces.get(tile1)));
+  }
+
   public static Puzzle makeNew() {
     return new Puzzle();
+  }
+
+  public static Puzzle copy(Puzzle p) {
+    return new Puzzle(p.pieces);
   }
 }

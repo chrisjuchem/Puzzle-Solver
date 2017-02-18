@@ -3,6 +3,8 @@ package evo.neuro;
 import java.util.HashMap;
 import java.util.Map;
 
+import evo.util.Rand;
+
 public class SecondaryNode extends Node {
 
   private Map<Node, Double> inputs;
@@ -13,6 +15,10 @@ public class SecondaryNode extends Node {
     inputs = new HashMap<>();
     this.selfVal = selfVal;
     this.selfWeight = selfWeight;
+  }
+
+  SecondaryNode(){
+    this(Rand.rand.nextDouble(), Rand.rand.nextDouble());
   }
 
   void connect(Node n, double weight) {
