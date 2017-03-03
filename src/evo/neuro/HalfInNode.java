@@ -16,5 +16,10 @@ public class HalfInNode extends InNode {
     Pic pic = getPic();
     this.value = (pic.half == Half.fromOrdinal(half) ? 1 : 0);
   }
+
+  @Override
+  Node copy() {
+    return new HalfInNode(tile, edge, half);
+  }
 }
 

@@ -1,5 +1,8 @@
 package evo.util;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import evo.evo.Generation;
 import evo.gui.Window;
 import evo.neuro.Network;
@@ -11,5 +14,6 @@ public class Main {
     Puzzle p = Puzzle.makeNew();
 
     g.run(p);
+
   }
 }

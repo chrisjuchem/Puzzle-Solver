@@ -7,9 +7,7 @@ import java.util.stream.Collectors;
 
 import evo.util.Rand;
 
-/**
- * Created by Chris Juchem on 1/9/2017.
- */
+
 public class Puzzle {
   private List<Tile> pieces;
   private static final boolean AUTO_GEN_SHUFFLE = true; //shuffle on creation?

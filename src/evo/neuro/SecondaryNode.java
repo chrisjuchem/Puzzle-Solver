@@ -12,13 +12,17 @@ public class SecondaryNode extends Node {
   private double selfWeight; //weighted similarly to a single other input
 
   SecondaryNode(double selfVal,double selfWeight){
-    inputs = new HashMap<>();
-    this.selfVal = selfVal;
-    this.selfWeight = selfWeight;
+    this(selfVal, selfWeight, new HashMap<>());
   }
 
   SecondaryNode(){
     this(Rand.rand.nextDouble(), Rand.rand.nextDouble());
+  }
+
+  private SecondaryNode(double selfVal, double selfWeight, Map<Node, Double> inputs) {
+    this.inputs = inputs;
+    this.selfVal = selfVal;
+    this.selfWeight = selfWeight;
   }
 
   void connect(Node n, double weight) {
@@ -34,5 +38,10 @@ public class SecondaryNode extends Node {
       sum += inputs.get(n) * n.getVal();
     }
     this.value = sum / potential;
+  }
+
+  @Override
+  Node copy() {
+    return new SecondaryNode(selfVal, selfWeight, inputs);
   }
 }

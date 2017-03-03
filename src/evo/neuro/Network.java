@@ -14,8 +14,12 @@ public class Network {
   //final static double MUTATION_RATE
 
 
-  private final int[] SHAPE = {216, 255, 128, 64, 32, 14};
-  Node[][] nodes;
+  private final static int[] SHAPE = {216, 255, 128, 64, 32, 14};
+  private Node[][] nodes;
+
+  private Network(Node[][] nodes) {
+    this.nodes = nodes;
+  }
 
   public Network() {
     //initialize the node arrays
@@ -143,5 +147,28 @@ public class Network {
       default:
         throw new RuntimeException("Undefined behavior called for by network");
     }
+  }
+
+  /**
+   * Naively breed two networks by randomly choosing a node from each parent.
+   * TODO: Each node takes connections randomly from each parent
+   * TODO: mutations
+   *
+   * @param father Network to breed with
+   * @return
+   */
+  public Network breed(Network father) {
+    Node[][] newNodes = new Node[SHAPE.length][];
+    for (int i = 0; i < SHAPE.length; i++) {
+      newNodes[i] = new Node[SHAPE[i]];
+    }
+
+    for (int i = 0; i < SHAPE.length; i++) {
+      for (int j = 0; j < SHAPE[i]; j++) {
+        newNodes[i][j] = (Rand.rand.nextInt(2) == 0 ? this.nodes[i][j] : father.nodes[i][j]).copy();
+      }
+    }
+
+    return new Network(newNodes);
   }
 }

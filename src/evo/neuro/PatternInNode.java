@@ -16,5 +16,10 @@ public class PatternInNode extends InNode {
     Pic pic = getPic();
     this.value = (pic.pattern == Pattern.fromOrdinal(pattern) ? 1 : 0);
   }
+
+  @Override
+  Node copy() {
+    return new PatternInNode(tile, edge, pattern);
+  }
 }
 

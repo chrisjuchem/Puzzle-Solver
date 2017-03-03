@@ -13,4 +13,6 @@ abstract class Node {
   double getVal() {
     return value;
   }
+
+  abstract Node copy();
 }

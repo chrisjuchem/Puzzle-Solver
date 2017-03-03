@@ -7,8 +7,8 @@ import evo.puzzle.Puzzle;
 import evo.puzzle.Tile;
 
 public abstract class InNode extends Node{
-  private int tile;    //[0,8]
-  private int edge;    //[0,3]
+  protected int tile;    //[0,8]
+  protected int edge;    //[0,3]
   private Puzzle p;
 
   InNode(int tile, int edge) {
