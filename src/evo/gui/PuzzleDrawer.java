@@ -45,6 +45,7 @@ class PuzzleDrawer extends JPanel {
                 t.left, topYs, topXs, botYs, botXs, 1, 1);
       }
     }
+    g.drawString(Integer.toString(p.score()), 25, 25);
   }
 
   private void drawShape(Graphics g, int x, int y, Pic p,

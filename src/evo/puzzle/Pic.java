@@ -14,11 +14,11 @@ public class Pic {
     pattern = p;
   }
 
-  public static Pic random() {
+  static Pic random() {
     return new Pic(Pattern.random(), Half.random());
   }
 
-  public Pic opposite() {
+  Pic opposite() {
     return new Pic(pattern, half.opposite());
   }
 
@@ -31,6 +31,10 @@ public class Pic {
     } else {
       return false;
     }
+  }
+
+  static int score(Pic p1, Pic p2) {
+    return (p1.pattern == p2.pattern && p1.half != p2.half) ? 1 : 0;
   }
 
   @Override

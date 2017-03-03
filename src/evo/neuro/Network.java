@@ -9,7 +9,7 @@ public class Network {
   private final static double SECONDARY_INPUTS_AVG = 3.5;
   private final static double SECONDARY_INPUTS_SD =  1.0;
 
-  private final static int STEP_CAP = 500;
+  private final static int STEP_CAP = 18;
 
   //final static double MUTATION_RATE
 
@@ -20,11 +20,10 @@ public class Network {
   public Network() {
     //initialize the node arrays
     nodes = new Node[SHAPE.length][];
-    for (int i = 1; i < SHAPE.length; i++) {
+    for (int i = 0; i < SHAPE.length; i++) {
       nodes[i] = new Node[SHAPE[i]];
     }
 
-    InNode[] inNodes = new InNode[SHAPE[0]];
     //initialize InNodes
     int count = 0;
     for (int tile = 0; tile < 9; tile++) {
@@ -39,7 +38,6 @@ public class Network {
         }
       }
     }
-    nodes[0] = inNodes;
 
     //initialize middle nodes
     for (int level = 1; level < SHAPE.length; level++) {
@@ -58,9 +56,9 @@ public class Network {
   public void run(Puzzle p) {
     int steps = 0;
     while (true){
-      InNode[] ins = (InNode[]) nodes[0];
-      for (InNode n : ins) {
-        n.setPuzzle(p);
+      Node[] ins =  nodes[0];
+      for (Node n : ins) {
+        ((InNode) n).setPuzzle(p);
       }
 
       for (Node[] level : nodes) {

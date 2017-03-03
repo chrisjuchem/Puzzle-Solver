@@ -73,6 +73,22 @@ public class Puzzle {
     pieces.set(tile1, pieces.set(tile2, pieces.get(tile1)));
   }
 
+  public int score(){
+    return Pic.score(pieces.get(0).right, pieces.get(1).left)
+            + Pic.score(pieces.get(1).right, pieces.get(2).left)
+            + Pic.score(pieces.get(0).bot, pieces.get(3).top)
+            + Pic.score(pieces.get(1).bot, pieces.get(4).top)
+            + Pic.score(pieces.get(2).bot, pieces.get(5).top)
+            + Pic.score(pieces.get(3).right, pieces.get(4).left)
+            + Pic.score(pieces.get(4).right, pieces.get(5).left)
+            + Pic.score(pieces.get(3).bot, pieces.get(6).top)
+            + Pic.score(pieces.get(4).bot, pieces.get(7).top)
+            + Pic.score(pieces.get(5).bot, pieces.get(8).top)
+            + Pic.score(pieces.get(6).right, pieces.get(7).left)
+            + Pic.score(pieces.get(7).right, pieces.get(8).left);
+  }
+
+
   public static Puzzle makeNew() {
     return new Puzzle();
   }

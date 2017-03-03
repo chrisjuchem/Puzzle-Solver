@@ -10,7 +10,11 @@ public class Window extends JFrame {
 
   PuzzleDrawer panel;
 
-  public Window() {
+  public  Window() {
+    this(Puzzle.makeNew());
+  }
+
+  public Window(Puzzle p) {
     //this.setLayout(new BorderLayout());
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setTitle("Evolution Sim");
@@ -19,7 +23,7 @@ public class Window extends JFrame {
     this.setSize(new Dimension(1200,  800));
 
     panel = new PuzzleDrawer();
-    panel.setPuzzle(Puzzle.makeNew());
+    panel.setPuzzle(p);
 
     this.add(panel);
 

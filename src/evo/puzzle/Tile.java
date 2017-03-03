@@ -3,7 +3,7 @@ package evo.puzzle;
 import java.util.Objects;
 
 /**
- * Represents a tile with a specific rotation.
+ * Represents a tile with a specific rotation. Tiles are never mutated.
  */
 public class Tile {
   public final Pic top;
