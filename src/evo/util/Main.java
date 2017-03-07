@@ -10,10 +10,10 @@ import evo.puzzle.Puzzle;
 
 public class Main {
   public static void main(String[] args) {
-    Generation g = new Generation();
-    Puzzle p = Puzzle.makeNew();
+    //Generation g = new Generation();
+    //Puzzle p = Puzzle.makeNew();
 
-    g.run(p);
-
+    //g.run(p);
+    new Window();
   }
 }

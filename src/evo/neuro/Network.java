@@ -57,6 +57,10 @@ public class Network {
     }
   }
 
+  /**
+   * Attempts to solve the given puzzle, altering it directly.
+   * @param p A copy of the puzzle to be solved.
+   */
   public void run(Puzzle p) {
     int steps = 0;
     while (true){

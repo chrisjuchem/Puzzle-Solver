@@ -42,7 +42,7 @@ public class Generation {
    */
   public void run(Puzzle p) {
     for (int i = 0; i < GEN_SIZE; i++) {
-      Puzzle copy = Puzzle.copy(p);
+      Puzzle copy = p.copyOf();
       networks[i].run(copy);
       scores.put(networks[i], scores.get(networks[i]) + copy.score());
     }

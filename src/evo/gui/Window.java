@@ -5,13 +5,12 @@ import java.awt.*;
 import javax.swing.*;
 
 import evo.puzzle.Puzzle;
-
 public class Window extends JFrame {
 
   PuzzleDrawer panel;
 
   public  Window() {
-    this(Puzzle.makeNew());
+    this(new Puzzle());
   }
 
   public Window(Puzzle p) {

@@ -3,6 +3,7 @@ package evo.puzzle;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import evo.util.Rand;
@@ -12,11 +13,15 @@ public class Puzzle {
   private List<Tile> pieces;
   private static final boolean AUTO_GEN_SHUFFLE = true; //shuffle on creation?
 
-  private Puzzle (List<Tile> pieces) {
+  public Puzzle (List<Tile> pieces) {
     this.pieces = pieces;
   }
 
-  private Puzzle() {
+  public Puzzle () {
+    this(AUTO_GEN_SHUFFLE);
+  }
+
+  public Puzzle (boolean shuffle) {
     /*   0  |  1  |  2
      *      0     1
      *  -2--+--3--+--4-
@@ -41,7 +46,7 @@ public class Puzzle {
     pieces.add(new Tile(edges.get(8).opposite(), edges.get(11), Pic.random(), edges.get(10).opposite()));
     pieces.add(new Tile(edges.get(9).opposite(), Pic.random(), Pic.random(), edges.get(11).opposite()));
 
-    if (AUTO_GEN_SHUFFLE) {
+    if (shuffle) {
       Collections.shuffle(pieces);
       pieces = pieces.stream().map((Tile t) -> {
         for (int i = Rand.rand.nextInt(4); i > 0; i--) {
@@ -59,16 +64,20 @@ public class Puzzle {
     return pieces.get(x + y * 3);
   }
 
-  public void rotate(int tile, int rotations) {
+  public Puzzle rotate(int tile, int rotations) {
     Tile t = pieces.get(tile);
     for (int i = 0; i < rotations; i++) {
       t = t.rotate();
     }
     pieces.set(tile, t);
+
+    return this;
   }
 
-  public void swap(int tile1, int tile2) {
+  public Puzzle swap(int tile1, int tile2) {
     pieces.set(tile1, pieces.set(tile2, pieces.get(tile1)));
+
+    return this;
   }
 
   public int score(){
@@ -86,12 +95,23 @@ public class Puzzle {
             + Pic.score(pieces.get(7).right, pieces.get(8).left);
   }
 
-
-  public static Puzzle makeNew() {
-    return new Puzzle();
+  public Puzzle copyOf() {
+    return new Puzzle(this.pieces);
   }
 
-  public static Puzzle copy(Puzzle p) {
-    return new Puzzle(p.pieces);
+  @Override
+  public boolean equals (Object other) {
+    if (this == other) {
+      return true;
+    } else if (other instanceof Puzzle) {
+      return ((Puzzle) other).pieces.equals(this.pieces);
+    } else {
+      return false;
+    }
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(pieces);
   }
 }
